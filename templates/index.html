@@ -1,1 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2d;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
 
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            background-color: #252534;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .sidebar h2 {
+            color: #ff4757;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: normal;
+        }
+
+        .sidebar a.active {
+            font-weight: bold;
+            color: #ff4757;
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00adb5;
+        }
+
+        form {
+            background: #2c2c3b;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        select, input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input, select {
+            background-color: #333344;
+            color: #ffffff;
+        }
+
+        button {
+            background-color: #ff4757;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e04050;
+        }
+
+        .result, .error {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .result { color: #00ff00; }
+        .error { color: #ff4c4c; }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>HealthGuard</h2>
+        <ul>
+            <li><a href="#" class="active">Interview Prediction</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>AI Interview Prediction</h1>
+        <form method="POST">
+            <!-- Age -->
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" required>
+
+            <!-- Candidate Status -->
+            <label for="candidate_status">Candidate Status:</label>
+            <select name="candidate_status" required>
+                <option value="1">Fresher</option>
+                <option value="2">Lateral</option>
+                <option value="3">Experienced</option>
+            </select>
+
+            <!-- Gender -->
+            <label for="gender">Gender:</label>
+            <select name="gender" required>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+
+            <!-- Fluency in English -->
+            <label for="fluency">Fluency in English:</label>
+            <select name="fluency" required>
+                <option value="3">Able to speak</option>
+                <option value="2">Taking gaps</option>
+                <option value="1">Unable to speak well</option>
+            </select>
+
+            <!-- Mother Tongue Influence -->
+            <label for="mother_tongue_influence">Mother Tongue Influence:</label>
+            <select name="mother_tongue_influence" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <!-- Acquaintance in Company -->
+            <label for="acquaintance">Has Acquaintance in Company:</label>
+            <select name="acquaintance" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <!-- Currently Employed -->
+            <label for="currently_employed">Currently Employed:</label>
+            <select name="currently_employed" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <!-- Willing to Relocate -->
+            <label for="willing_to_relocate">Willing to Relocate:</label>
+            <select name="willing_to_relocate" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <!-- Confidence Scores -->
+            <label for="confidence_intro">Confidence Based on Introduction:</label>
+            <select name="confidence_intro" required>
+                <option value="1">Bad</option>
+                <option value="2">Normal</option>
+                <option value="3">Good</option>
+            </select>
+
+            <label for="confidence_topic">Confidence Based on Topic:</label>
+            <select name="confidence_topic" required>
+                <option value="1">Bad</option>
+                <option value="2">Normal</option>
+                <option value="3">Good</option>
+            </select>
+
+            <!-- Structured Thinking -->
+            <label for="structured_thinking_pitch">Structured Thinking (Call Pitch):</label>
+            <select name="structured_thinking_pitch" required>
+                <option value="1">Bad</option>
+                <option value="2">Normal</option>
+                <option value="3">Good</option>
+            </select>
+
+            <!-- Submit Button -->
+            <button type="submit">Predict</button>
+        </form>
+
+        <!-- Prediction Result -->
+        {% if prediction %}
+            <div class="result">
+                <p>Prediction: <strong>{{ prediction }}</strong></p>
+            </div>
+        {% endif %}
+
+        {% if error %}
+            <div class="error">
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
