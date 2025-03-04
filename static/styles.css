@@ -1,1 +1,120 @@
+/* General styling */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
+/* Center the container */
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    flex-grow: 1;
+}
+
+/* Header Styling */
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 32px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+select, input[type="text"] {
+    background-color: #333;
+    border: 1px solid #444;
+    color: white;
+    padding: 8px;
+    width: 230px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+input[type="text"] {
+    width: 230px;
+}
+
+/* Button Styling */
+button[type="submit"] {
+    background-color: white;
+    color: black;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #ddd;
+}
+
+/* Prediction Result Styling */
+.prediction-result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Prediction Result Text */
+.prediction-result h3 {
+    font-size: 24px;
+}
+
+/* Prediction Result Styling */
+.prediction-result {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    position: fixed; /* Make it fixed to the screen */
+    top: 50%; /* Move to the center vertically */
+    left: 50%; /* Move to the center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position to center exactly */
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+/* Prediction Result Text */
+.prediction-result h3 {
+    font-size: 24px;
+}
+
+.prediction-result p {
+    font-size: 20px;
+    color: lightgreen;
+}
+
+
+/* Mobile View Styling */
+@media (max-width: 768px) {
+    form {
+        flex-direction: column;
+    }
+}
